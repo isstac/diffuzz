@@ -1,0 +1,672 @@
+util/GHUtility.java:        final int nodes = g.getNodes();
+util/GHUtility.java:        int nodeIndex = 0;
+util/GHUtility.java:            while (nodeIndex < nodes) {
+util/GHUtility.java:                final double lat = na.getLatitude(nodeIndex);
+util/GHUtility.java:                final double lon = na.getLongitude(nodeIndex);
+util/GHUtility.java:                final EdgeIterator iter = explorer.setBaseNode(nodeIndex);
+util/GHUtility.java:                    if (iter.getAdjNode() >= nodes) {
+util/GHUtility.java:                        problems.add("edge of " + nodeIndex + " has a node " + iter.getAdjNode() + " greater or equal to getNodes");
+util/GHUtility.java:                        problems.add("edge of " + nodeIndex + " has a negative node " + iter.getAdjNode());
+util/GHUtility.java:                ++nodeIndex;
+util/GHUtility.java:            throw new RuntimeException("problem with node " + nodeIndex, ex);
+util/GHUtility.java:            protected boolean goFurther(final int nodeId) {
+util/GHUtility.java:                System.out.println(GHUtility.getNodeInfo(g, nodeId, filter));
+util/GHUtility.java:    public static String getNodeInfo(final CHGraph g, final int nodeId, final EdgeFilter filter) {
+util/GHUtility.java:        final CHEdgeIterator iter = ex.setBaseNode(nodeId);
+util/GHUtility.java:        String str = nodeId + ":" + na.getLatitude(nodeId) + "," + na.getLongitude(nodeId) + "\n";
+util/GHUtility.java:    public static String getNodeInfo(final Graph g, final int nodeId, final EdgeFilter filter) {
+util/GHUtility.java:        final EdgeIterator iter = g.createEdgeExplorer(filter).setBaseNode(nodeId);
+util/GHUtility.java:        String str = nodeId + ":" + na.getLatitude(nodeId) + "," + na.getLongitude(nodeId) + "\n";
+util/GHUtility.java:        final int nodes = g.getNodes();
+util/GHUtility.java:        list.fill(0, nodes, -1);
+util/GHUtility.java:        final GHBitSetImpl bitset = new GHBitSetImpl(nodes);
+util/GHUtility.java:        for (int startNode = 0; startNode >= 0 && startNode < nodes; startNode = bitset.nextClear(startNode + 1)) {
+util/GHUtility.java:                protected boolean goFurther(final int nodeId) {
+util/GHUtility.java:                    list.set(nodeId, ref.incrementAndGet());
+util/GHUtility.java:                    return super.goFurther(nodeId);
+util/GHUtility.java:        final int nodes = fromGraph.getNodes();
+util/GHUtility.java:        for (int old = 0; old < nodes; ++old) {
+util/GHUtility.java:        for (int nodes = fromGraph.getNodes(), node = 0; node < nodes; ++node) {
+util/GHUtility.java:                tna.setNode(node, fna.getLatitude(node), fna.getLongitude(node), fna.getElevation(node));
+util/GHUtility.java:                tna.setNode(node, fna.getLatitude(node), fna.getLongitude(node));
+util/GHUtility.java:    public static int createEdgeKey(final int nodeA, final int nodeB, int edgeId, final boolean reverse) {
+util/GHUtility.java:            return (nodeA > nodeB) ? edgeId : (edgeId + 1);
+util/GHUtility.java:        return (nodeA > nodeB) ? (edgeId + 1) : edgeId;
+util/FinishInstruction.java:    public FinishInstruction(final PointAccess pointAccess, final int node) {
+util/FinishInstruction.java:        this(pointAccess.getLatitude(node), pointAccess.getLongitude(node), pointAccess.is3D() ? pointAccess.getElevation(node) : 0.0);
+util/XFirstSearch.java:    protected boolean goFurther(final int nodeId) {
+util/PointList.java:    public void ensureNode(final int nodeId) {
+util/PointList.java:        this.incCap(nodeId + 1);
+util/PointList.java:    public void setNode(final int nodeId, final double lat, final double lon) {
+util/PointList.java:        this.set(nodeId, lat, lon, Double.NaN);
+util/PointList.java:    public void setNode(final int nodeId, final double lat, final double lon, final double ele) {
+util/PointList.java:        this.set(nodeId, lat, lon, ele);
+util/PointList.java:    public void add(final PointAccess nodeAccess, final int index) {
+util/PointList.java:            this.add(nodeAccess.getLatitude(index), nodeAccess.getLongitude(index), nodeAccess.getElevation(index));
+util/PointList.java:            this.add(nodeAccess.getLatitude(index), nodeAccess.getLongitude(index));
+util/EdgeWrapper.java:    private int[] nodes;
+util/EdgeWrapper.java:    protected TIntIntHashMap node2ref;
+util/EdgeWrapper.java:        this.nodes = new int[size];
+util/EdgeWrapper.java:        this.node2ref = new TIntIntHashMap(size, 1.5f, -1, -1);
+util/EdgeWrapper.java:    public int add(final int nodeId, final double distance, final int edgeId) {
+util/EdgeWrapper.java:        this.node2ref.put(nodeId, ref);
+util/EdgeWrapper.java:        this.nodes[ref] = nodeId;
+util/EdgeWrapper.java:        return this.nodes[ref];
+util/EdgeWrapper.java:        if (size < this.nodes.length) {
+util/EdgeWrapper.java:        this.nodes = Arrays.copyOf(this.nodes, cap);
+util/EdgeWrapper.java:        this.node2ref.ensureCapacity(cap);
+util/EdgeWrapper.java:        Arrays.fill(this.nodes, 0);
+util/EdgeWrapper.java:        this.node2ref.clear();
+util/EdgeWrapper.java:    public int getRef(final int node) {
+util/EdgeWrapper.java:        return this.node2ref.get(node);
+tour/Places.java:                final OSMNode node = (OSMNode)item;
+tour/Places.java:                if (!node.hasTag("name", new String[0]) || !node.hasTag("place", new String[0])) {
+tour/Places.java:                final String name = node.getTag("name");
+tour/Places.java:                final GHPlace place = new GHPlace(node.getLat(), node.getLon()).setName(name);
+routing/AStarBidirection.java:        final int nodes = Math.max(20, graph.getNodes());
+routing/AStarBidirection.java:        this.initCollections(nodes);
+routing/AStarBidirection.java:        final BeelineWeightApproximator defaultApprox = new BeelineWeightApproximator(this.nodeAccess, weighting);
+routing/AStarBidirection.java:    protected EdgeEntry createEdgeEntry(final int node, final double weight) {
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:    private final TIntArrayStack nodeStack;
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:    private final int[] nodeIndex;
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:    private final int[] nodeLowLink;
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:        this.nodeStack = new TIntArrayStack();
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:        this.nodeIndex = new int[graph.getNodes()];
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:        this.nodeLowLink = new int[graph.getNodes()];
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:        for (int nodes = this.graph.getNodes(), start = 0; start < nodes; ++start) {
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:            if (this.nodeIndex[start] == 0 && !this.graph.isNodeRemoved(start)) {
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:                this.nodeIndex[start] = this.index;
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:                this.nodeLowLink[start] = this.index;
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:                this.nodeStack.push(start);
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:                this.nodeLowLink[start] = Math.min(this.nodeLowLink[start], this.nodeLowLink[prevConnectedId]);
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:                if (this.nodeIndex[connectedId] == 0) {
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:                this.nodeLowLink[start] = Math.min(this.nodeLowLink[start], this.nodeIndex[connectedId]);
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:            if (this.nodeIndex[start] == this.nodeLowLink[start]) {
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:                int node;
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:                while ((node = this.nodeStack.pop()) != start) {
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:                    component.add(node);
+routing/util/TarjansStronglyConnectedComponentsAlgorithm.java:                    this.onStack.clear(node);
+routing/util/EncodingManager.java:            throw new IllegalArgumentException(String.format("Encoders are requesting more than %s bits of %s flags. ", this.bitsForEdgeFlags, "node"));
+routing/util/EncodingManager.java:    public long handleNodeTags(final OSMNode node) {
+routing/util/EncodingManager.java:            flags |= encoder.handleNodeTags(node);
+routing/util/PrepareRoutingSubnetworks.java:        this.logger.info("optimize to remove subnetworks (" + this.subnetworks + "), " + "unvisited-dead-end-nodes (" + unvisitedDeadEnds + "), " + "maxEdges/node (" + this.maxEdgesPerNode.get() + ")");
+routing/util/PrepareRoutingSubnetworks.java:                    protected final boolean goFurther(final int nodeId) {
+routing/util/PrepareRoutingSubnetworks.java:                        intList.add(nodeId);
+routing/util/PrepareRoutingSubnetworks.java:        for (int nodeIndex = 0; nodeIndex < this.ghStorage.getNodes(); ++nodeIndex) {
+routing/util/PrepareRoutingSubnetworks.java:            if (this.detectNodeRemovedForAllEncoders(edgeExplorer, nodeIndex)) {
+routing/util/PrepareRoutingSubnetworks.java:                this.ghStorage.markNodeRemoved(nodeIndex);
+routing/util/PrepareRoutingSubnetworks.java:    boolean detectNodeRemovedForAllEncoders(final EdgeExplorer edgeExplorerAllEdges, final int nodeIndex) {
+routing/util/PrepareRoutingSubnetworks.java:        final EdgeIterator iter = edgeExplorerAllEdges.setBaseNode(nodeIndex);
+routing/util/TestAlgoCollector.java:            this.errors.add("node not found for " + lat + "," + lon);
+routing/util/BeelineWeightApproximator.java:    private final NodeAccess nodeAccess;
+routing/util/BeelineWeightApproximator.java:    public BeelineWeightApproximator(final NodeAccess nodeAccess, final Weighting weighting) {
+routing/util/BeelineWeightApproximator.java:        this.nodeAccess = nodeAccess;
+routing/util/BeelineWeightApproximator.java:        this.toLat = this.nodeAccess.getLatitude(toNode);
+routing/util/BeelineWeightApproximator.java:        this.toLon = this.nodeAccess.getLongitude(toNode);
+routing/util/BeelineWeightApproximator.java:        return new BeelineWeightApproximator(this.nodeAccess, this.weighting).setDistanceCalc(this.distanceCalc);
+routing/util/BeelineWeightApproximator.java:        final double fromLat = this.nodeAccess.getLatitude(fromNode);
+routing/util/BeelineWeightApproximator.java:        final double fromLon = this.nodeAccess.getLongitude(fromNode);
+routing/util/AbstractFlagEncoder.java:    private long nodeBitMask;
+routing/util/AbstractFlagEncoder.java:    public long handleNodeTags(final OSMNode node) {
+routing/util/AbstractFlagEncoder.java:        if (node.hasTag("barrier", this.absoluteBarriers)) {
+routing/util/AbstractFlagEncoder.java:        if (node.hasTag("barrier", this.potentialBarriers)) {
+routing/util/AbstractFlagEncoder.java:            if (node.hasTag("locked", "yes")) {
+routing/util/AbstractFlagEncoder.java:                if (!locked && node.hasTag(res, this.intendedValues)) {
+routing/util/AbstractFlagEncoder.java:                if (node.hasTag(res, this.restrictedValues)) {
+routing/util/AbstractFlagEncoder.java:        if (this.blockFords && (node.hasTag("highway", "ford") || node.hasTag("ford", new String[0])) && !node.hasTag(this.restrictions, this.intendedValues) && !node.hasTag("ford", "no")) {
+routing/util/AbstractFlagEncoder.java:        this.nodeBitMask = (1L << usedBits) - 1L;
+routing/util/AbstractFlagEncoder.java:        this.nodeBitMask <<= shift;
+routing/util/AbstractFlagEncoder.java:        return this.nodeBitMask;
+routing/util/TurnWeighting.java:    public double calcTurnWeight(final int edgeFrom, final int nodeVia, final int edgeTo) {
+routing/util/TurnWeighting.java:        final long turnFlags = this.turnCostExt.getTurnCostFlags(edgeFrom, nodeVia, edgeTo);
+routing/DijkstraOneToMany.java:    public DijkstraOneToMany setLimitVisitedNodes(final int nodes) {
+routing/DijkstraOneToMany.java:        this.limitVisitedNodes = nodes;
+routing/AbstractRoutingAlgorithm.java:    protected NodeAccess nodeAccess;
+routing/AbstractRoutingAlgorithm.java:        this.nodeAccess = graph.getNodeAccess();
+routing/AbstractRoutingAlgorithm.java:    protected EdgeEntry createEdgeEntry(final int node, final double weight) {
+routing/AbstractRoutingAlgorithm.java:        return new EdgeEntry(-1, node, weight);
+routing/QueryGraph.java:    private final NodeAccess nodeAccess;
+routing/QueryGraph.java:        this.nodeAccess = new NodeAccess() {
+routing/QueryGraph.java:            public void ensureNode(final int nodeId) {
+routing/QueryGraph.java:                QueryGraph.this.mainNodeAccess.ensureNode(nodeId);
+routing/QueryGraph.java:            public double getLatitude(final int nodeId) {
+routing/QueryGraph.java:                if (QueryGraph.this.isVirtualNode(nodeId)) {
+routing/QueryGraph.java:                    return QueryGraph.this.virtualNodes.getLatitude(nodeId - QueryGraph.this.mainNodes);
+routing/QueryGraph.java:                return QueryGraph.this.mainNodeAccess.getLatitude(nodeId);
+routing/QueryGraph.java:            public double getLongitude(final int nodeId) {
+routing/QueryGraph.java:                if (QueryGraph.this.isVirtualNode(nodeId)) {
+routing/QueryGraph.java:                    return QueryGraph.this.virtualNodes.getLongitude(nodeId - QueryGraph.this.mainNodes);
+routing/QueryGraph.java:                return QueryGraph.this.mainNodeAccess.getLongitude(nodeId);
+routing/QueryGraph.java:            public double getElevation(final int nodeId) {
+routing/QueryGraph.java:                if (QueryGraph.this.isVirtualNode(nodeId)) {
+routing/QueryGraph.java:                    return QueryGraph.this.virtualNodes.getElevation(nodeId - QueryGraph.this.mainNodes);
+routing/QueryGraph.java:                return QueryGraph.this.mainNodeAccess.getElevation(nodeId);
+routing/QueryGraph.java:            public int getAdditionalNodeField(final int nodeId) {
+routing/QueryGraph.java:                if (QueryGraph.this.isVirtualNode(nodeId)) {
+routing/QueryGraph.java:                return QueryGraph.this.mainNodeAccess.getAdditionalNodeField(nodeId);
+routing/QueryGraph.java:            public void setNode(final int nodeId, final double lat, final double lon) {
+routing/QueryGraph.java:            public void setNode(final int nodeId, final double lat, final double lon, final double ele) {
+routing/QueryGraph.java:            public void setAdditionalNodeField(final int nodeId, final int additionalValue) {
+routing/QueryGraph.java:            public double getLat(final int nodeId) {
+routing/QueryGraph.java:                return this.getLatitude(nodeId);
+routing/QueryGraph.java:            public double getLon(final int nodeId) {
+routing/QueryGraph.java:                return this.getLongitude(nodeId);
+routing/QueryGraph.java:            public double getEle(final int nodeId) {
+routing/QueryGraph.java:                return this.getElevation(nodeId);
+routing/QueryGraph.java:        this.nodeAccess = new NodeAccess() {
+routing/QueryGraph.java:            public void ensureNode(final int nodeId) {
+routing/QueryGraph.java:                QueryGraph.this.mainNodeAccess.ensureNode(nodeId);
+routing/QueryGraph.java:            public double getLatitude(final int nodeId) {
+routing/QueryGraph.java:                if (QueryGraph.this.isVirtualNode(nodeId)) {
+routing/QueryGraph.java:                    return QueryGraph.this.virtualNodes.getLatitude(nodeId - QueryGraph.this.mainNodes);
+routing/QueryGraph.java:                return QueryGraph.this.mainNodeAccess.getLatitude(nodeId);
+routing/QueryGraph.java:            public double getLongitude(final int nodeId) {
+routing/QueryGraph.java:                if (QueryGraph.this.isVirtualNode(nodeId)) {
+routing/QueryGraph.java:                    return QueryGraph.this.virtualNodes.getLongitude(nodeId - QueryGraph.this.mainNodes);
+routing/QueryGraph.java:                return QueryGraph.this.mainNodeAccess.getLongitude(nodeId);
+routing/QueryGraph.java:            public double getElevation(final int nodeId) {
+routing/QueryGraph.java:                if (QueryGraph.this.isVirtualNode(nodeId)) {
+routing/QueryGraph.java:                    return QueryGraph.this.virtualNodes.getElevation(nodeId - QueryGraph.this.mainNodes);
+routing/QueryGraph.java:                return QueryGraph.this.mainNodeAccess.getElevation(nodeId);
+routing/QueryGraph.java:            public int getAdditionalNodeField(final int nodeId) {
+routing/QueryGraph.java:                if (QueryGraph.this.isVirtualNode(nodeId)) {
+routing/QueryGraph.java:                return QueryGraph.this.mainNodeAccess.getAdditionalNodeField(nodeId);
+routing/QueryGraph.java:            public void setNode(final int nodeId, final double lat, final double lon) {
+routing/QueryGraph.java:            public void setNode(final int nodeId, final double lat, final double lon, final double ele) {
+routing/QueryGraph.java:            public void setAdditionalNodeField(final int nodeId, final int additionalValue) {
+routing/QueryGraph.java:            public double getLat(final int nodeId) {
+routing/QueryGraph.java:                return this.getLatitude(nodeId);
+routing/QueryGraph.java:            public double getLon(final int nodeId) {
+routing/QueryGraph.java:                return this.getLongitude(nodeId);
+routing/QueryGraph.java:            public double getEle(final int nodeId) {
+routing/QueryGraph.java:                return this.getElevation(nodeId);
+routing/QueryGraph.java:                        throw new IllegalStateException("Base nodes have to be identical but were not: " + closestEdge + " vs " + res.getClosestEdge());
+routing/QueryGraph.java:    public boolean isVirtualNode(final int nodeId) {
+routing/QueryGraph.java:        return nodeId >= this.mainNodes;
+routing/QueryGraph.java:    private void createEdges(final int origTraversalKey, final int origRevTraversalKey, final GHPoint3D prevSnapped, final int prevWayIndex, final GHPoint3D currSnapped, final int wayIndex, final PointList fullPL, final EdgeIteratorState closestEdge, final int prevNodeId, final int nodeId, final long reverseFlags) {
+routing/QueryGraph.java:        final VirtualEdgeIteratorState baseEdge = new VirtualEdgeIteratorState(origTraversalKey, virtEdgeId, prevNodeId, nodeId, baseDistance, closestEdge.getFlags(), closestEdge.getName(), basePoints);
+routing/QueryGraph.java:        final VirtualEdgeIteratorState baseReverseEdge = new VirtualEdgeIteratorState(origRevTraversalKey, virtEdgeId, nodeId, prevNodeId, baseDistance, reverseFlags, closestEdge.getName(), baseReversePoints);
+routing/QueryGraph.java:    public boolean enforceHeading(final int nodeId, double favoredHeading, final boolean incoming) {
+routing/QueryGraph.java:        if (!this.isVirtualNode(nodeId)) {
+routing/QueryGraph.java:        final int virtNodeIDintern = nodeId - this.mainNodes;
+routing/QueryGraph.java:    public boolean enforceHeadingByEdgeId(final int nodeId, final int edgeId, final boolean incoming) {
+routing/QueryGraph.java:        if (!this.isVirtualNode(nodeId)) {
+routing/QueryGraph.java:        final VirtualEdgeIteratorState incomingEdge = (VirtualEdgeIteratorState)this.getEdgeIteratorState(edgeId, nodeId);
+routing/QueryGraph.java:        return this.nodeAccess;
+routing/QueryGraph.java:        final TIntObjectMap<VirtualEdgeIterator> node2EdgeMap = (TIntObjectMap<VirtualEdgeIterator>)new TIntObjectHashMap(this.queryResults.size() * 3);
+routing/QueryGraph.java:            node2EdgeMap.put(virtNode, (Object)virtEdgeIter);
+routing/QueryGraph.java:                this.addVirtualEdges(node2EdgeMap, edgeFilter, true, towerNode, i);
+routing/QueryGraph.java:                this.addVirtualEdges(node2EdgeMap, edgeFilter, false, towerNode, i);
+routing/QueryGraph.java:                QueryGraph.this.fillVirtualEdges(node2EdgeMap, value, mainExplorer);
+routing/QueryGraph.java:                final VirtualEdgeIterator iter = (VirtualEdgeIterator)node2EdgeMap.get(baseNode);
+routing/QueryGraph.java:    private void addVirtualEdges(final TIntObjectMap<VirtualEdgeIterator> node2EdgeMap, final EdgeFilter filter, final boolean base, final int node, final int virtNode) {
+routing/QueryGraph.java:        VirtualEdgeIterator existingIter = (VirtualEdgeIterator)node2EdgeMap.get(node);
+routing/QueryGraph.java:            node2EdgeMap.put(node, (Object)existingIter);
+routing/QueryGraph.java:    void fillVirtualEdges(final TIntObjectMap<VirtualEdgeIterator> node2Edge, final int towerNode, final EdgeExplorer mainExpl) {
+routing/QueryGraph.java:            throw new IllegalStateException("Node should not be virtual:" + towerNode + ", " + node2Edge);
+routing/QueryGraph.java:        final VirtualEdgeIterator vIter = (VirtualEdgeIterator)node2Edge.get(towerNode);
+routing/QueryGraph.java:        public long getTurnCostFlags(int edgeFrom, final int nodeVia, int edgeTo) {
+routing/QueryGraph.java:            if (QueryGraph.this.isVirtualNode(nodeVia)) {
+routing/QueryGraph.java:                return this.mainTurnExtension.getTurnCostFlags(edgeFrom, nodeVia, edgeTo);
+routing/QueryGraph.java:            return this.mainTurnExtension.getTurnCostFlags(edgeFrom, nodeVia, edgeTo);
+routing/ch/PrepareContractionHierarchies.java:    private double nodesContractedPercentage;
+routing/ch/PrepareContractionHierarchies.java:        this.nodesContractedPercentage = 100.0;
+routing/ch/PrepareContractionHierarchies.java:    public PrepareContractionHierarchies setContractedNodes(final double nodesContracted) {
+routing/ch/PrepareContractionHierarchies.java:        if (nodesContracted < 0.0) {
+routing/ch/PrepareContractionHierarchies.java:        if (nodesContracted > 100.0) {
+routing/ch/PrepareContractionHierarchies.java:        this.nodesContractedPercentage = nodesContracted;
+routing/ch/PrepareContractionHierarchies.java:        final int nodes = this.prepareGraph.getNodes();
+routing/ch/PrepareContractionHierarchies.java:        for (int node = 0; node < nodes; ++node) {
+routing/ch/PrepareContractionHierarchies.java:            this.prepareGraph.setLevel(node, this.maxLevel);
+routing/ch/PrepareContractionHierarchies.java:        for (int node = 0; node < nodes; ++node) {
+routing/ch/PrepareContractionHierarchies.java:            final int n = node;
+routing/ch/PrepareContractionHierarchies.java:            final int calculatePriority = this.calculatePriority(node);
+routing/ch/PrepareContractionHierarchies.java:            this.sortedNodes.insert(node, priority);
+routing/ch/PrepareContractionHierarchies.java:        final long nodesToAvoidContract = Math.round((100.0 - this.nodesContractedPercentage) / 100.0 * this.sortedNodes.getSize());
+routing/ch/PrepareContractionHierarchies.java:                for (int len = this.prepareGraph.getNodes(), node = 0; node < len; ++node) {
+routing/ch/PrepareContractionHierarchies.java:                    if (this.prepareGraph.getLevel(node) == this.maxLevel) {
+routing/ch/PrepareContractionHierarchies.java:                        final int n = node;
+routing/ch/PrepareContractionHierarchies.java:                        final int calculatePriority = this.calculatePriority(node);
+routing/ch/PrepareContractionHierarchies.java:                        this.sortedNodes.insert(node, priority);
+routing/ch/PrepareContractionHierarchies.java:                    throw new IllegalStateException("Cannot prepare as no unprepared nodes where found. Called preparation twice?");
+routing/ch/PrepareContractionHierarchies.java:                this.logger.info(Helper.nf(this.counter) + ", updates:" + updateCounter + ", nodes: " + Helper.nf(this.sortedNodes.getSize()) + ", shortcuts:" + Helper.nf(this.newShortcuts) + ", dijkstras:" + Helper.nf(this.dijkstraCount) + ", " + this.getTimesAsString() + ", meanDegree:" + (long)this.meanDegree + ", algo:" + this.prepareAlgo.getMemoryUsageAsString() + ", " + Helper.getMemInfo());
+routing/ch/PrepareContractionHierarchies.java:            if (this.sortedNodes.getSize() < nodesToAvoidContract) {
+routing/ch/PrepareContractionHierarchies.java:    Set<Shortcut> testFindShortcuts(final int node) {
+routing/ch/PrepareContractionHierarchies.java:        this.findShortcuts(this.addScHandler.setNode(node));
+routing/ch/PrepareContractionHierarchies.java:                protected void initCollections(final int nodes) {
+routing/ch/PrepareContractionHierarchies.java:                    super.initCollections(Math.min(PrepareContractionHierarchies.this.initialCollectionSize, nodes));
+routing/ch/PrepareContractionHierarchies.java:                protected void initCollections(final int nodes) {
+routing/ch/PrepareContractionHierarchies.java:                    super.initCollections(Math.min(PrepareContractionHierarchies.this.initialCollectionSize, nodes));
+routing/ch/PrepareContractionHierarchies.java:        int node;
+routing/ch/PrepareContractionHierarchies.java:            this.node = n;
+routing/ch/PrepareContractionHierarchies.java:            return this.node;
+routing/ch/PrepareContractionHierarchies.java:        int node;
+routing/ch/PrepareContractionHierarchies.java:            return this.node;
+routing/ch/PrepareContractionHierarchies.java:            this.node = n;
+routing/ch/PrepareContractionHierarchies.java:        public IgnoreNodeFilter setAvoidNode(final int node) {
+routing/ch/PrepareContractionHierarchies.java:            this.avoidNode = node;
+routing/ch/PrepareContractionHierarchies.java:            final int node = iter.getAdjNode();
+routing/ch/PrepareContractionHierarchies.java:            return this.avoidNode != node && this.graph.getLevel(node) == this.maxLevel;
+routing/ch/PrepareContractionHierarchies.java:        int node;
+routing/ch/PrepareContractionHierarchies.java:        public PriorityNode(final int node, final int priority) {
+routing/ch/PrepareContractionHierarchies.java:            this.node = node;
+routing/ch/PrepareContractionHierarchies.java:            return this.node + " (" + this.priority + ")";
+routing/Path.java:    private NodeAccess nodeAccess;
+routing/Path.java:        this.nodeAccess = graph.getNodeAccess();
+routing/Path.java:                throw new IllegalStateException("Edge " + this.edgeIds.get(i) + " was empty when requested with node " + tmpNode + ", array index:" + i + ", edges:" + this.edgeIds.size());
+routing/Path.java:        final TIntArrayList nodes = new TIntArrayList(this.edgeIds.size() + 1);
+routing/Path.java:                nodes.add(this.endNode);
+routing/Path.java:            return (TIntList)nodes;
+routing/Path.java:        nodes.add(tmpNode);
+routing/Path.java:                nodes.add(eb.getAdjNode());
+routing/Path.java:        return (TIntList)nodes;
+routing/Path.java:        final PointList points = new PointList(this.edgeIds.size() + 1, this.nodeAccess.is3D());
+routing/Path.java:        points.add(this.nodeAccess, tmpNode);
+routing/Path.java:                ways.add(new FinishInstruction(this.nodeAccess, this.endNode));
+routing/Path.java:            private double prevLat = Path.this.nodeAccess.getLatitude(tmpNode);
+routing/Path.java:            private double prevLon = Path.this.nodeAccess.getLongitude(tmpNode);
+routing/Path.java:                final double adjLat = Path.this.nodeAccess.getLatitude(adjNode);
+routing/Path.java:                final double adjLon = Path.this.nodeAccess.getLongitude(adjNode);
+routing/Path.java:                    assert Double.compare(this.prevLat, Path.this.nodeAccess.getLatitude(baseNode)) == 0;
+routing/Path.java:                    assert Double.compare(this.prevLon, Path.this.nodeAccess.getLongitude(baseNode)) == 0;
+routing/Path.java:                    this.prevInstruction = new Instruction(sign, this.name, this.annotation, new PointList(10, Path.this.nodeAccess.is3D()));
+routing/Path.java:                        final RoundaboutInstruction roundaboutInstruction = new RoundaboutInstruction(sign, this.name, this.annotation, new PointList(10, Path.this.nodeAccess.is3D()));
+routing/Path.java:                    this.prevInstruction = new Instruction(sign2, this.name, this.annotation, new PointList(10, Path.this.nodeAccess.is3D()));
+routing/Path.java:                    ways.add(new FinishInstruction(Path.this.nodeAccess, adjNode));
+routing/DijkstraBidirectionRef.java:    protected void initCollections(final int nodes) {
+routing/DijkstraBidirectionRef.java:        this.openSetFrom = new PriorityQueue<EdgeEntry>(nodes / 10);
+routing/DijkstraBidirectionRef.java:        this.bestWeightMapFrom = (TIntObjectMap<EdgeEntry>)new TIntObjectHashMap(nodes / 10);
+routing/DijkstraBidirectionRef.java:        this.openSetTo = new PriorityQueue<EdgeEntry>(nodes / 10);
+routing/DijkstraBidirectionRef.java:        this.bestWeightMapTo = (TIntObjectMap<EdgeEntry>)new TIntObjectHashMap(nodes / 10);
+routing/PathBidir.java:        int nodeFrom = this.edgeWFrom.getNode(this.fromRef);
+routing/PathBidir.java:        int nodeTo = this.edgeWTo.getNode(this.toRef);
+routing/PathBidir.java:        if (nodeFrom != nodeTo) {
+routing/PathBidir.java:        for (int currRef = this.fromRef; currRef > 0; currRef = this.edgeWFrom.getParent(currRef), nodeFrom = this.edgeWFrom.getNode(currRef)) {
+routing/PathBidir.java:            this.processEdge(edgeId, nodeFrom);
+routing/PathBidir.java:        this.setFromNode(nodeFrom);
+routing/PathBidir.java:            nodeTo = this.edgeWTo.getNode(tmpRef);
+routing/PathBidir.java:            this.processEdge(edgeId, nodeTo);
+routing/PathBidir.java:        this.setEndNode(nodeTo);
+routing/AStar.java:        final BeelineWeightApproximator defaultApprox = new BeelineWeightApproximator(this.nodeAccess, weighting);
+routing/AStar.java:    protected EdgeEntry createEdgeEntry(final int node, final double weight) {
+GHResponse.java:        String str = "nodes:" + this.list.getSize() + "; " + this.list.toString();
+reader/PillarInfo.java:    public void ensureNode(final int nodeId) {
+reader/PillarInfo.java:        final long tmp = nodeId * this.rowSizeInBytes;
+reader/PillarInfo.java:    public void setNode(final int nodeId, final double lat, final double lon) {
+reader/PillarInfo.java:        this._setNode(nodeId, lat, lon, Double.NaN);
+reader/PillarInfo.java:    public void setNode(final int nodeId, final double lat, final double lon, final double ele) {
+reader/PillarInfo.java:        this._setNode(nodeId, lat, lon, ele);
+reader/PillarInfo.java:    private void _setNode(final int nodeId, final double lat, final double lon, final double ele) {
+reader/PillarInfo.java:        this.ensureNode(nodeId);
+reader/PillarInfo.java:        final long tmp = nodeId * this.rowSizeInBytes;
+reader/OSMTurnRelation.java:        final int nodeVia = osmReader.getInternalNodeIdOfOsmNode(this.viaOsmNodeId);
+reader/OSMTurnRelation.java:            if (nodeVia == -1) {
+reader/OSMTurnRelation.java:            EdgeIterator iter = edgeInExplorer.setBaseNode(nodeVia);
+reader/OSMTurnRelation.java:            iter = edgeOutExplorer.setBaseNode(nodeVia);
+reader/OSMTurnRelation.java:                    entry.nodeVia = nodeVia;
+reader/OSMTurnRelation.java:            throw new IllegalStateException("Could not built turn table entry for relation of node with osmId:" + this.viaOsmNodeId, e);
+reader/OSMTurnRelation.java:        public int nodeVia;
+reader/OSMTurnRelation.java:            return "*-(" + this.edgeFrom + ")->" + this.nodeVia + "-(" + this.edgeTo + ")->*";
+reader/OSMReader.java:    private final NodeAccess nodeAccess;
+reader/OSMReader.java:        this.nodeAccess = this.graph.getNodeAccess();
+reader/OSMReader.java:        this.pillarInfo = new PillarInfo(this.nodeAccess.is3D(), ghStorage.getDirectory());
+reader/OSMReader.java:        OSMReader.logger.info("creating graph. Found nodes (pillar+tower):" + Helper.nf(this.getNodeMap().getSize()) + ", " + Helper.getMemInfo());
+reader/OSMReader.java:            final LongIntMap nodeFilter = this.getNodeMap();
+reader/OSMReader.java:                        if (nodeFilter.get(item.getId()) != -1) {
+reader/OSMReader.java:            final long nodeId = osmNodeIds.get(i);
+reader/OSMReader.java:            final long nodeFlags = this.getNodeFlagsMap().get(nodeId);
+reader/OSMReader.java:            if (nodeFlags > 0L && (nodeFlags & wayFlags) > 0L) {
+reader/OSMReader.java:                this.getNodeFlagsMap().put(nodeId, 0L);
+reader/OSMReader.java:                final long newNodeId = this.addBarrierNode(nodeId);
+reader/OSMReader.java:                    createdEdges.addAll(this.addBarrierEdge(newNodeId, nodeId, wayFlags, nodeFlags, wayOsmId));
+reader/OSMReader.java:                    createdEdges.addAll(this.addBarrierEdge(nodeId, newNodeId, wayFlags, nodeFlags, wayOsmId));
+reader/OSMReader.java:                        tcs.addTurnInfo(entry.edgeFrom, entry.nodeVia, entry.edgeTo, entry.flags);
+reader/OSMReader.java:    public int getInternalNodeIdOfOsmNode(final long nodeOsmId) {
+reader/OSMReader.java:        final int id = this.getNodeMap().get(nodeOsmId);
+reader/OSMReader.java:            return this.nodeAccess.getLatitude(id);
+reader/OSMReader.java:            return this.nodeAccess.getLongitude(id);
+reader/OSMReader.java:    private void processNode(final OSMNode node) {
+reader/OSMReader.java:        if (this.isInBounds(node)) {
+reader/OSMReader.java:            this.addNode(node);
+reader/OSMReader.java:            if (node.hasTags()) {
+reader/OSMReader.java:                final long nodeFlags = this.encodingManager.handleNodeTags(node);
+reader/OSMReader.java:                if (nodeFlags != 0L) {
+reader/OSMReader.java:                    this.getNodeFlagsMap().put(node.getId(), nodeFlags);
+reader/OSMReader.java:    boolean addNode(final OSMNode node) {
+reader/OSMReader.java:        final int nodeType = this.getNodeMap().get(node.getId());
+reader/OSMReader.java:        if (nodeType == -1) {
+reader/OSMReader.java:        final double lat = node.getLat();
+reader/OSMReader.java:        final double lon = node.getLon();
+reader/OSMReader.java:        final double ele = this.getElevation(node);
+reader/OSMReader.java:        if (nodeType == -2) {
+reader/OSMReader.java:            this.addTowerNode(node.getId(), lat, lon, ele);
+reader/OSMReader.java:        else if (nodeType == 1) {
+reader/OSMReader.java:            this.getNodeMap().put(node.getId(), this.nextPillarId + 3);
+reader/OSMReader.java:    protected double getElevation(final OSMNode node) {
+reader/OSMReader.java:        return this.eleProvider.getEle(node.getLat(), node.getLon());
+reader/OSMReader.java:        if (this.nodeAccess.is3D()) {
+reader/OSMReader.java:            this.nodeAccess.setNode(this.nextTowerId, lat, lon, ele);
+reader/OSMReader.java:            this.nodeAccess.setNode(this.nextTowerId, lat, lon);
+reader/OSMReader.java:        final PointList pointList = new PointList(osmNodeIds.size(), this.nodeAccess.is3D());
+reader/OSMReader.java:                                    pointList.add(this.nodeAccess, tmpNode);
+reader/OSMReader.java:                                pointList.add(this.nodeAccess, tmpNode);
+reader/OSMReader.java:                                    pointList.add(this.nodeAccess, tmpNode);
+reader/OSMReader.java:        if (pointList.getDimension() != this.nodeAccess.getDimension()) {
+reader/OSMReader.java:            throw new AssertionError((Object)("Dimension does not match for pointList vs. nodeAccess " + pointList.getDimension() + " <-> " + this.nodeAccess.getDimension()));
+reader/OSMReader.java:        final PointList pillarNodes = new PointList(pointList.getSize() - 2, this.nodeAccess.is3D());
+reader/OSMReader.java:        final int nodes = pointList.getSize();
+reader/OSMReader.java:        for (int i = 1; i < nodes; ++i) {
+reader/OSMReader.java:            if (nodes > 2 && i < nodes - 1) {
+reader/OSMReader.java:            OSMReader.logger.warn("Bug in OSM or GraphHopper. Illegal tower node distance " + towerNodeDistance + " reset to 1m, osm way " + wayOsmId);
+reader/OSMReader.java:        if (nodes > 2) {
+reader/OSMReader.java:    long addBarrierNode(final long nodeId) {
+reader/OSMReader.java:        int graphIndex = this.getNodeMap().get(nodeId);
+reader/OSMReader.java:            newNode = new OSMNode(this.createNewNodeId(), this.nodeAccess, graphIndex);
+reader/OSMReader.java:    Collection<EdgeIteratorState> addBarrierEdge(final long fromId, final long toId, long flags, final long nodeFlags, final long wayOsmId) {
+reader/OSMReader.java:        flags &= ~nodeFlags;
+reader/OSMReader.java:    boolean isInBounds(final OSMNode node) {
+reader/OSMReader.java:        if (!this.nodeAccess.is3D() && ElevationProvider.NOOP != eleProvider) {
+reader/OSMReader.java:        OSMReader.logger.info("finished " + str + " processing." + " nodes: " + this.graph.getNodes() + ", osmIdMap.size:" + this.getNodeMap().getSize() + ", osmIdMap:" + this.getNodeMap().getMemoryUsage() + "MB" + ", nodeFlagsMap.size:" + this.getNodeFlagsMap().size() + ", relFlagsMap.size:" + this.getRelFlagsMap().size() + ", zeroCounter:" + this.zeroCounter + " " + Helper.getMemInfo());
+reader/pbf/PbfBlobDecoder.java:    private void processNodes(final List<Osmformat.Node> nodes, final PbfFieldDecoder fieldDecoder) {
+reader/pbf/PbfBlobDecoder.java:        for (final Osmformat.Node node : nodes) {
+reader/pbf/PbfBlobDecoder.java:            final Map<String, String> tags = this.buildTags(node.getKeysList(), node.getValsList(), fieldDecoder);
+reader/pbf/PbfBlobDecoder.java:            final OSMNode osmNode = new OSMNode(node.getId(), fieldDecoder.decodeLatitude(node.getLat()), fieldDecoder.decodeLatitude(node.getLon()));
+reader/pbf/PbfBlobDecoder.java:    private void processNodes(final Osmformat.DenseNodes nodes, final PbfFieldDecoder fieldDecoder) {
+reader/pbf/PbfBlobDecoder.java:        final List<Long> idList = (List<Long>)nodes.getIdList();
+reader/pbf/PbfBlobDecoder.java:        final List<Long> latList = (List<Long>)nodes.getLatList();
+reader/pbf/PbfBlobDecoder.java:        final List<Long> lonList = (List<Long>)nodes.getLonList();
+reader/pbf/PbfBlobDecoder.java:        final Iterator<Integer> keysValuesIterator = nodes.getKeysValsList().iterator();
+reader/pbf/PbfBlobDecoder.java:        long nodeId = 0L;
+reader/pbf/PbfBlobDecoder.java:            nodeId += idList.get(i);
+reader/pbf/PbfBlobDecoder.java:            final OSMNode node = new OSMNode(nodeId, latitude / 1.0E7, longitude / 1.0E7);
+reader/pbf/PbfBlobDecoder.java:            node.setTags(tags);
+reader/pbf/PbfBlobDecoder.java:            this.decodedEntities.add(node);
+reader/pbf/PbfBlobDecoder.java:            long nodeId = 0L;
+reader/pbf/PbfBlobDecoder.java:            for (final long nodeIdOffset : way.getRefsList()) {
+reader/pbf/PbfBlobDecoder.java:                nodeId += nodeIdOffset;
+reader/pbf/PbfBlobDecoder.java:                wayNodes.add(nodeId);
+reader/OSMNode.java:        final OSMNode node = new OSMNode(id, Double.parseDouble(parser.getAttributeValue(null, "lat")), Double.parseDouble(parser.getAttributeValue(null, "lon")));
+reader/OSMNode.java:        node.readTags(parser);
+reader/OSMNode.java:        return node;
+reader/PrinctonReader.java:            final int nodes = Integer.parseInt(reader.readLine());
+reader/OSMInputFile.java:                            if ("node".equals(name)) {
+reader/OSMWay.java:    protected final TLongList nodes;
+reader/OSMWay.java:        this.nodes = (TLongList)new TLongArrayList(5);
+reader/OSMWay.java:                this.nodes.add(Long.parseLong(ref));
+reader/OSMWay.java:        return this.nodes;
+reader/OSMWay.java:        return "Way id:" + this.getId() + ", nodes:" + this.nodes.size() + ", tags:" + super.toString();
+storage/StorableProperties.java:        this.put("nodes.version", 4);
+storage/StorableProperties.java:        return this.get("nodes.version") + "," + this.get("edges.version") + "," + this.get("geometry.version") + "," + this.get("locationIndex.version") + "," + this.get("nameIndex.version");
+storage/StorableProperties.java:        return this.check("nodes", 4, silent) && this.check("edges", 12, silent) && this.check("geometry", 3, silent) && this.check("locationIndex", 2, silent) && this.check("nameIndex", 2, silent) && this.check("shortcuts", 1, silent);
+storage/BaseGraph.java:    int nodeEntryBytes;
+storage/BaseGraph.java:    final DataAccess nodes;
+storage/BaseGraph.java:    private int nodeCount;
+storage/BaseGraph.java:    private int nodeEntryIndex;
+storage/BaseGraph.java:    final NodeAccess nodeAccess;
+storage/BaseGraph.java:        this.nodes = dir.find("nodes");
+storage/BaseGraph.java:            final int getEdgeRef(final int nodeId) {
+storage/BaseGraph.java:                return BaseGraph.this.nodes.getInt(nodeId * BaseGraph.this.nodeEntryBytes + BaseGraph.this.N_EDGE_REF);
+storage/BaseGraph.java:            final void setEdgeRef(final int nodeId, final int edgeId) {
+storage/BaseGraph.java:                BaseGraph.this.nodes.setInt(nodeId * BaseGraph.this.nodeEntryBytes + BaseGraph.this.N_EDGE_REF, edgeId);
+storage/BaseGraph.java:        this.nodeAccess = new GHNodeAccess(this, withElevation);
+storage/BaseGraph.java:        this.nodeEntryBytes = this.nodes.getHeader(4);
+storage/BaseGraph.java:        this.nodeCount = this.nodes.getHeader(8);
+storage/BaseGraph.java:        this.bounds.minLon = Helper.intToDegree(this.nodes.getHeader(12));
+storage/BaseGraph.java:        this.bounds.maxLon = Helper.intToDegree(this.nodes.getHeader(16));
+storage/BaseGraph.java:        this.bounds.minLat = Helper.intToDegree(this.nodes.getHeader(20));
+storage/BaseGraph.java:        this.bounds.maxLat = Helper.intToDegree(this.nodes.getHeader(24));
+storage/BaseGraph.java:            this.bounds.minEle = Helper.intToEle(this.nodes.getHeader(28));
+storage/BaseGraph.java:            this.bounds.maxEle = Helper.intToEle(this.nodes.getHeader(32));
+storage/BaseGraph.java:        this.frozen = (this.nodes.getHeader(36) == 1);
+storage/BaseGraph.java:        this.nodes.setHeader(4, this.nodeEntryBytes);
+storage/BaseGraph.java:        this.nodes.setHeader(8, this.nodeCount);
+storage/BaseGraph.java:        this.nodes.setHeader(12, Helper.degreeToInt(this.bounds.minLon));
+storage/BaseGraph.java:        this.nodes.setHeader(16, Helper.degreeToInt(this.bounds.maxLon));
+storage/BaseGraph.java:        this.nodes.setHeader(20, Helper.degreeToInt(this.bounds.minLat));
+storage/BaseGraph.java:        this.nodes.setHeader(24, Helper.degreeToInt(this.bounds.maxLat));
+storage/BaseGraph.java:            this.nodes.setHeader(28, Helper.eleToInt(this.bounds.minEle));
+storage/BaseGraph.java:            this.nodes.setHeader(32, Helper.eleToInt(this.bounds.maxEle));
+storage/BaseGraph.java:        this.nodes.setHeader(36, this.isFrozen() ? 1 : 0);
+storage/BaseGraph.java:        this.nodeEntryIndex = 0;
+storage/BaseGraph.java:        if (this.nodeAccess.is3D()) {
+storage/BaseGraph.java:        for (long pointer = oldCapacity + this.N_EDGE_REF; pointer < newCapacity; pointer += this.nodeEntryBytes) {
+storage/BaseGraph.java:            this.nodes.setInt(pointer, -1);
+storage/BaseGraph.java:            for (long pointer = oldCapacity + this.N_ADDITIONAL; pointer < newCapacity; pointer += this.nodeEntryBytes) {
+storage/BaseGraph.java:                this.nodes.setInt(pointer, this.extStorage.getDefaultNodeFieldValue());
+storage/BaseGraph.java:        final int tmp = this.nodeEntryIndex;
+storage/BaseGraph.java:        this.nodeEntryIndex += sizeInBytes;
+storage/BaseGraph.java:        this.nodeEntryBytes = this.nodeEntryIndex;
+storage/BaseGraph.java:    final void ensureNodeIndex(final int nodeIndex) {
+storage/BaseGraph.java:        if (nodeIndex < this.nodeCount) {
+storage/BaseGraph.java:        final long oldNodes = this.nodeCount;
+storage/BaseGraph.java:        this.nodeCount = nodeIndex + 1;
+storage/BaseGraph.java:        final boolean capacityIncreased = this.nodes.ensureCapacity(this.nodeCount * this.nodeEntryBytes);
+storage/BaseGraph.java:            final long newBytesCapacity = this.nodes.getCapacity();
+storage/BaseGraph.java:            this.initNodeRefs(oldNodes * this.nodeEntryBytes, newBytesCapacity);
+storage/BaseGraph.java:        return this.nodeCount;
+storage/BaseGraph.java:        return this.nodeAccess;
+storage/BaseGraph.java:        this.nodes.setSegmentSize(bytes);
+storage/BaseGraph.java:            throw new IllegalStateException("Cannot add edge or node after baseGraph.freeze was called");
+storage/BaseGraph.java:        this.nodes.create(initSize);
+storage/BaseGraph.java:        this.initNodeRefs(0L, this.nodes.getCapacity());
+storage/BaseGraph.java:        return "edges:" + Helper.nf(this.edgeCount) + "(" + this.edges.getCapacity() / 1048576L + "MB), " + "nodes:" + Helper.nf(this.getNodes()) + "(" + this.nodes.getCapacity() / 1048576L + "MB), " + "name:(" + this.nameIndex.getCapacity() / 1048576L + "MB), " + "geo:" + Helper.nf(this.maxGeoRef) + "(" + this.wayGeometry.getCapacity() / 1048576L + "MB), " + "bounds:" + this.bounds;
+storage/BaseGraph.java:        this.nodes.flush();
+storage/BaseGraph.java:        this.nodes.close();
+storage/BaseGraph.java:        return this.edges.getCapacity() + this.nodes.getCapacity() + this.nameIndex.getCapacity() + this.wayGeometry.getCapacity() + this.extStorage.getCapacity();
+storage/BaseGraph.java:        if (!this.nodes.loadExisting()) {
+storage/BaseGraph.java:            throw new IllegalStateException("Cannot load nodes. corrupt file or directory? " + this.dir);
+storage/BaseGraph.java:        if (!dim.equalsIgnoreCase("" + this.nodeAccess.getDimension())) {
+storage/BaseGraph.java:            throw new IllegalStateException("Configured dimension (" + this.nodeAccess.getDimension() + ") is not equal " + "to dimension of loaded graph (" + dim + ")");
+storage/BaseGraph.java:    public EdgeIteratorState edge(final int nodeA, final int nodeB) {
+storage/BaseGraph.java:        this.ensureNodeIndex(Math.max(nodeA, nodeB));
+storage/BaseGraph.java:        final int edgeId = this.edgeAccess.internalEdgeAdd(this.nextEdgeId(), nodeA, nodeB);
+storage/BaseGraph.java:        final boolean ret = iter.init(edgeId, nodeB);
+storage/BaseGraph.java:        if ((adjNode < 0 && adjNode != Integer.MIN_VALUE) || adjNode >= this.nodeCount) {
+storage/BaseGraph.java:            throw new IllegalStateException("adjNode " + adjNode + " out of bounds [0," + Helper.nf(this.nodeCount) + ")");
+storage/BaseGraph.java:        if (clonedG.nodeEntryBytes != this.nodeEntryBytes) {
+storage/BaseGraph.java:            throw new IllegalStateException("nodeEntryBytes cannot be different for cloned graph. Cloned: " + clonedG.nodeEntryBytes + " vs " + this.nodeEntryBytes);
+storage/BaseGraph.java:        if (clonedG.nodeAccess.getDimension() != this.nodeAccess.getDimension()) {
+storage/BaseGraph.java:            throw new IllegalStateException("dimension cannot be different for cloned graph. Cloned: " + clonedG.nodeAccess.getDimension() + " vs " + this.nodeAccess.getDimension());
+storage/BaseGraph.java:        this.nodes.copyTo(clonedG.nodes);
+storage/BaseGraph.java:        final long nodeCap = this.nodeCount * this.nodeEntryBytes;
+storage/BaseGraph.java:        this.nodes.trimTo(nodeCap);
+storage/BaseGraph.java:                final int nodeId = adjNodesToDelIter.getAdjNode();
+storage/BaseGraph.java:                if (nodeId != -1 && this.removedNodes.contains(nodeId)) {
+storage/BaseGraph.java:                    this.edgeAccess.internalEdgeDisconnect(edgeToRemove, prev, removeNode2, nodeId);
+storage/BaseGraph.java:                final int nodeId2 = movedEdgeIter.getAdjNode();
+storage/BaseGraph.java:                if (nodeId2 == -1) {
+storage/BaseGraph.java:                if (this.removedNodes.contains(nodeId2)) {
+storage/BaseGraph.java:                    throw new IllegalStateException("shouldn't happen the edge to the node " + nodeId2 + " should be already deleted. " + oldI);
+storage/BaseGraph.java:                toMoveSet.add(nodeId2);
+storage/BaseGraph.java:            final long newOffset = newI * this.nodeEntryBytes;
+storage/BaseGraph.java:            final long oldOffset = oldI * this.nodeEntryBytes;
+storage/BaseGraph.java:            for (long j = 0L; j < this.nodeEntryBytes; j += 4L) {
+storage/BaseGraph.java:                this.nodes.setInt(newOffset + j, this.nodes.getInt(oldOffset + j));
+storage/BaseGraph.java:            final int nodeA = iter.getBaseNode();
+storage/BaseGraph.java:            final int nodeB = iter.getAdjNode();
+storage/BaseGraph.java:            if (!toMoveSet.contains(nodeA) && !toMoveSet.contains(nodeB)) {
+storage/BaseGraph.java:            int updatedA = oldToNewMap.get(nodeA);
+storage/BaseGraph.java:                updatedA = nodeA;
+storage/BaseGraph.java:            int updatedB = oldToNewMap.get(nodeB);
+storage/BaseGraph.java:                updatedB = nodeB;
+storage/BaseGraph.java:            final int linkA = this.edgeAccess.getEdgeRef(nodeA, nodeB, edgePointer);
+storage/BaseGraph.java:            final int linkB = this.edgeAccess.getEdgeRef(nodeB, nodeA, edgePointer);
+storage/BaseGraph.java:            if (updatedA < updatedB == nodeA < nodeB) {
+storage/BaseGraph.java:        if (removeNodeCount >= this.nodeCount) {
+storage/BaseGraph.java:        this.nodeCount -= removeNodeCount;
+storage/BaseGraph.java:                final String str = iter.getEdge() + ", r.contains(" + base + "):" + this.removedNodes.contains(base) + ", r.contains(" + adj + "):" + this.removedNodes.contains(adj) + ", tr.contains(" + base + "):" + toRemoveSet.contains(base) + ", tr.contains(" + adj + "):" + toRemoveSet.contains(adj) + ", base:" + base + ", adj:" + adj + ", nodeCount:" + this.nodeCount;
+storage/BaseGraph.java:                if (adj >= this.nodeCount) {
+storage/BaseGraph.java:                    throw new RuntimeException("Adj.node problem with edge " + str);
+storage/BaseGraph.java:                if (base >= this.nodeCount) {
+storage/BaseGraph.java:                    throw new RuntimeException("Base node problem with edge " + str);
+storage/BaseGraph.java:            explorer.setBaseNode(this.nodeCount - 1).toString();
+storage/BaseGraph.java:            if (pillarNodes.getDimension() != this.nodeAccess.getDimension()) {
+storage/BaseGraph.java:                throw new IllegalArgumentException("Cannot use pointlist which is " + pillarNodes.getDimension() + "D for graph which is " + this.nodeAccess.getDimension() + "D");
+storage/BaseGraph.java:            final int dim = this.nodeAccess.getDimension();
+storage/BaseGraph.java:            final boolean is3D = this.nodeAccess.is3D();
+storage/BaseGraph.java:            bytes = new byte[count * this.nodeAccess.getDimension() * 4];
+storage/BaseGraph.java:        final PointList pillarNodes = new PointList(count + mode, this.nodeAccess.is3D());
+storage/BaseGraph.java:                pillarNodes.add(this.nodeAccess, adjNode);
+storage/BaseGraph.java:            pillarNodes.add(this.nodeAccess, baseNode);
+storage/BaseGraph.java:            if (this.nodeAccess.is3D()) {
+storage/BaseGraph.java:                pillarNodes.add(this.nodeAccess, baseNode);
+storage/BaseGraph.java:            pillarNodes.add(this.nodeAccess, adjNode);
+storage/BaseGraph.java:                assert this.nextEdgeId != this.edgeId : "endless loop detected for base node: " + this.baseNode + ", adj node: " + this.adjNode + ", edge pointer: " + this.edgePointer + ", edge: " + this.edgeId;
+storage/index/LocationIndexTree.java:    private final NodeAccess nodeAccess;
+storage/index/LocationIndexTree.java:        this.nodeAccess = g.getNodeAccess();
+storage/index/LocationIndexTree.java:        for (final int node : pointset) {
+storage/index/LocationIndexTree.java:            final double lat = this.nodeAccess.getLat(node);
+storage/index/LocationIndexTree.java:            final double lon = this.nodeAccess.getLon(node);
+storage/index/LocationIndexTree.java:                        protected boolean check(final int node, final double normedDist, final int wayIndex, final EdgeIteratorState edge, final QueryResult.Position pos) {
+storage/index/LocationIndexTree.java:                                closestMatch.setClosestNode(node);
+storage/index/LocationIndexTree.java:                    final int nodeA = allIter.getBaseNode();
+storage/index/LocationIndexTree.java:                    final int nodeB = allIter.getAdjNode();
+storage/index/LocationIndexTree.java:                    double lat1 = LocationIndexTree.this.nodeAccess.getLatitude(nodeA);
+storage/index/LocationIndexTree.java:                    double lon1 = LocationIndexTree.this.nodeAccess.getLongitude(nodeA);
+storage/index/LocationIndexTree.java:                        this.addNode(nodeA, nodeB, lat1, lon1, lat2, lon2);
+storage/index/LocationIndexTree.java:                    final double lat2 = LocationIndexTree.this.nodeAccess.getLatitude(nodeB);
+storage/index/LocationIndexTree.java:                    final double lon2 = LocationIndexTree.this.nodeAccess.getLongitude(nodeB);
+storage/index/LocationIndexTree.java:                    this.addNode(nodeA, nodeB, lat1, lon1, lat2, lon2);
+storage/index/LocationIndexTree.java:        void addNode(final int nodeA, final int nodeB, final double lat1, final double lon1, final double lat2, final double lon2) {
+storage/index/LocationIndexTree.java:                    InMemConstructionIndex.this.addNode(InMemConstructionIndex.this.root, nodeA, 0, keyPart, key);
+storage/index/LocationIndexTree.java:        void addNode(final InMemEntry entry, final int nodeId, int depth, long keyPart, final long key) {
+storage/index/LocationIndexTree.java:                leafEntry.addNode(nodeId);
+storage/index/LocationIndexTree.java:                this.addNode(subentry, nodeId, depth, keyPart, key);
+storage/index/LocationIndexTree.java:            this.currLat = LocationIndexTree.this.nodeAccess.getLatitude(baseNode);
+storage/index/LocationIndexTree.java:            this.currLon = LocationIndexTree.this.nodeAccess.getLongitude(baseNode);
+storage/index/LocationIndexTree.java:            final double adjLat = LocationIndexTree.this.nodeAccess.getLatitude(adjNode);
+storage/index/LocationIndexTree.java:            final double adjLon = LocationIndexTree.this.nodeAccess.getLongitude(adjNode);
+storage/index/LocationIndexTree.java:        public boolean addNode(final int nodeId) {
+storage/index/LocationIndexTree.java:            return this.addOnce(nodeId);
+storage/index/Location2IDFullIndex.java:    private final NodeAccess nodeAccess;
+storage/index/Location2IDFullIndex.java:        this.nodeAccess = g.getNodeAccess();
+storage/index/Location2IDFullIndex.java:                int node;
+storage/index/Location2IDFullIndex.java:                    node = iter.getBaseNode();
+storage/index/Location2IDFullIndex.java:                    node = iter.getAdjNode();
+storage/index/Location2IDFullIndex.java:                final double tmpLat = this.nodeAccess.getLatitude(node);
+storage/index/Location2IDFullIndex.java:                final double tmpLon = this.nodeAccess.getLongitude(node);
+storage/index/Location2IDFullIndex.java:                    res.setClosestNode(node);
+storage/index/QueryResult.java:    public void setClosestNode(final int node) {
+storage/index/QueryResult.java:        this.closestNode = node;
+storage/index/Location2IDQuadtree.java:    private final NodeAccess nodeAccess;
+storage/index/Location2IDQuadtree.java:        this.nodeAccess = g.getNodeAccess();
+storage/index/Location2IDQuadtree.java:            throw new IllegalStateException("index was created from a different graph with " + checksum + ". Current nodes:" + this.graph.getNodes());
+storage/index/Location2IDQuadtree.java:        for (int nodeId = 0; nodeId < locs; ++nodeId) {
+storage/index/Location2IDQuadtree.java:            final double lat = this.nodeAccess.getLatitude(nodeId);
+storage/index/Location2IDQuadtree.java:            final double lon = this.nodeAccess.getLongitude(nodeId);
+storage/index/Location2IDQuadtree.java:                final double oldLat = this.nodeAccess.getLatitude(oldNodeId);
+storage/index/Location2IDQuadtree.java:                final double oldLon = this.nodeAccess.getLongitude(oldNodeId);
+storage/index/Location2IDQuadtree.java:                    this.index.setInt(bytePos, nodeId);
+storage/index/Location2IDQuadtree.java:                this.index.setInt(bytePos, nodeId);
+storage/index/Location2IDQuadtree.java:        final double mainLat = this.nodeAccess.getLatitude(id);
+storage/index/Location2IDQuadtree.java:        final double mainLon = this.nodeAccess.getLongitude(id);
+storage/index/Location2IDQuadtree.java:                final double currLat = Location2IDQuadtree.this.nodeAccess.getLatitude(baseNode);
+storage/index/Location2IDQuadtree.java:                final double currLon = Location2IDQuadtree.this.nodeAccess.getLongitude(baseNode);
+storage/index/Location2IDFullWithEdgesIndex.java:    private final NodeAccess nodeAccess;
+storage/index/Location2IDFullWithEdgesIndex.java:        this.nodeAccess = g.getNodeAccess();
+storage/index/Location2IDFullWithEdgesIndex.java:                int node;
+storage/index/Location2IDFullWithEdgesIndex.java:                    node = iter.getBaseNode();
+storage/index/Location2IDFullWithEdgesIndex.java:                    node = iter.getAdjNode();
+storage/index/Location2IDFullWithEdgesIndex.java:                final double fromLat = this.nodeAccess.getLatitude(node);
+storage/index/Location2IDFullWithEdgesIndex.java:                final double fromLon = this.nodeAccess.getLongitude(node);
+storage/index/Location2IDFullWithEdgesIndex.java:                        res.setClosestNode(node);
+storage/index/Location2IDFullWithEdgesIndex.java:                        final double toLat = this.nodeAccess.getLatitude(toNode);
+storage/index/Location2IDFullWithEdgesIndex.java:                        final double toLon = this.nodeAccess.getLongitude(toNode);
+storage/index/Location2IDFullWithEdgesIndex.java:                                res.setClosestNode(node);
+storage/GHNodeAccess.java:    public void ensureNode(final int nodeId) {
+storage/GHNodeAccess.java:        this.that.ensureNodeIndex(nodeId);
+storage/GHNodeAccess.java:    public final void setNode(final int nodeId, final double lat, final double lon) {
+storage/GHNodeAccess.java:        this.setNode(nodeId, lat, lon, Double.NaN);
+storage/GHNodeAccess.java:    public final void setNode(final int nodeId, final double lat, final double lon, final double ele) {
+storage/GHNodeAccess.java:        this.that.ensureNodeIndex(nodeId);
+storage/GHNodeAccess.java:        final long tmp = nodeId * this.that.nodeEntryBytes;
+storage/GHNodeAccess.java:        this.that.nodes.setInt(tmp + this.that.N_LAT, Helper.degreeToInt(lat));
+storage/GHNodeAccess.java:        this.that.nodes.setInt(tmp + this.that.N_LON, Helper.degreeToInt(lon));
+storage/GHNodeAccess.java:            this.that.nodes.setInt(tmp + this.that.N_ELE, Helper.eleToInt(ele));
+storage/GHNodeAccess.java:            this.that.nodes.setInt(tmp + this.that.N_ADDITIONAL, this.that.extStorage.getDefaultNodeFieldValue());
+storage/GHNodeAccess.java:    public final double getLatitude(final int nodeId) {
+storage/GHNodeAccess.java:        return Helper.intToDegree(this.that.nodes.getInt(nodeId * this.that.nodeEntryBytes + this.that.N_LAT));
+storage/GHNodeAccess.java:    public final double getLongitude(final int nodeId) {
+storage/GHNodeAccess.java:        return Helper.intToDegree(this.that.nodes.getInt(nodeId * this.that.nodeEntryBytes + this.that.N_LON));
+storage/GHNodeAccess.java:    public final double getElevation(final int nodeId) {
+storage/GHNodeAccess.java:        return Helper.intToEle(this.that.nodes.getInt(nodeId * this.that.nodeEntryBytes + this.that.N_ELE));
+storage/GHNodeAccess.java:    public final double getEle(final int nodeId) {
+storage/GHNodeAccess.java:        return this.getElevation(nodeId);
+storage/GHNodeAccess.java:    public final double getLat(final int nodeId) {
+storage/GHNodeAccess.java:        return this.getLatitude(nodeId);
+storage/GHNodeAccess.java:    public final double getLon(final int nodeId) {
+storage/GHNodeAccess.java:        return this.getLongitude(nodeId);
+storage/GHNodeAccess.java:            final long tmp = index * this.that.nodeEntryBytes;
+storage/GHNodeAccess.java:            this.that.nodes.setInt(tmp + this.that.N_ADDITIONAL, additionalValue);
+storage/GHNodeAccess.java:        throw new AssertionError((Object)"This graph does not provide an additional node field");
+storage/GHNodeAccess.java:            return this.that.nodes.getInt(index * this.that.nodeEntryBytes + this.that.N_ADDITIONAL);
+storage/GHNodeAccess.java:        throw new AssertionError((Object)"This graph does not provide an additional node field");
+storage/TurnCostExtension.java:    private NodeAccess nodeAccess;
+storage/TurnCostExtension.java:        this.nodeAccess = graph.getNodeAccess();
+storage/TurnCostExtension.java:        int previousEntryIndex = this.nodeAccess.getAdditionalNodeField(viaNode);
+storage/TurnCostExtension.java:            this.nodeAccess.setAdditionalNodeField(viaNode, newEntryIndex);
+storage/TurnCostExtension.java:                    throw new IllegalStateException("Something unexpected happened. A node probably will not have 1000+ relations.");
+storage/TurnCostExtension.java:    public long getTurnCostFlags(final int edgeFrom, final int nodeVia, final int edgeTo) {
+storage/TurnCostExtension.java:        if (nodeVia < 0) {
+storage/TurnCostExtension.java:            throw new IllegalArgumentException("via node cannot be negative");
+storage/TurnCostExtension.java:        return this.nextCostFlags(edgeFrom, nodeVia, edgeTo);
+storage/TurnCostExtension.java:    private long nextCostFlags(final int edgeFrom, final int nodeVia, final int edgeTo) {
+storage/TurnCostExtension.java:        for (turnCostIndex = this.nodeAccess.getAdditionalNodeField(nodeVia), i = 0; i < 1000 && turnCostIndex != -1; turnCostIndex = nextTurnCostIndex, ++i) {
+storage/TurnCostExtension.java:    private void ensureTurnCostIndex(final int nodeIndex) {
+storage/TurnCostExtension.java:        this.turnCosts.ensureCapacity((nodeIndex + 4L) * this.turnCostsEntryBytes);
+storage/GraphHopperStorage.java:        this.properties.put("graph.dimension", this.baseGraph.nodeAccess.getDimension());
+storage/GraphHopperStorage.java:        return this.baseGraph.nodes.isClosed();
+storage/GraphHopperStorage.java:        return (this.isCHPossible() ? "CH|" : "") + this.encodingManager + "|" + this.getDirectory().getDefaultType() + "|" + this.baseGraph.nodeAccess.getDimension() + "D" + "|" + this.baseGraph.extStorage + "|" + this.getProperties().versionsToString();
+storage/EdgeAccess.java:    final int getOtherNode(final int nodeThis, final long edgePointer) {
+storage/EdgeAccess.java:        final int nodeA = this.edges.getInt(edgePointer + this.E_NODEA);
+storage/EdgeAccess.java:        if (nodeA == nodeThis) {
+storage/EdgeAccess.java:        return nodeA;
+storage/EdgeAccess.java:    private long _getLinkPosInEdgeArea(final int nodeThis, final int nodeOther, final long edgePointer) {
+storage/EdgeAccess.java:        return (nodeThis <= nodeOther) ? (edgePointer + this.E_LINKA) : (edgePointer + this.E_LINKB);
+storage/EdgeAccess.java:    final int getEdgeRef(final int nodeThis, final int nodeOther, final long edgePointer) {
+storage/EdgeAccess.java:        return this.edges.getInt(this._getLinkPosInEdgeArea(nodeThis, nodeOther, edgePointer));
+storage/EdgeAccess.java:    final long writeEdge(final int edgeId, int nodeThis, int nodeOther, int nextEdge, int nextEdgeOther) {
+storage/EdgeAccess.java:        if (nodeThis > nodeOther) {
+storage/EdgeAccess.java:            int tmp = nodeThis;
+storage/EdgeAccess.java:            nodeThis = nodeOther;
+storage/EdgeAccess.java:            nodeOther = tmp;
+storage/EdgeAccess.java:            throw new IllegalStateException("Cannot write edge with illegal ID:" + edgeId + "; nodeThis:" + nodeThis + ", nodeOther:" + nodeOther);
+storage/EdgeAccess.java:        this.edges.setInt(edgePointer + this.E_NODEA, nodeThis);
+storage/EdgeAccess.java:        this.edges.setInt(edgePointer + this.E_NODEB, nodeOther);
+storage/CHGraphImpl.java:    int nodeCHEntryBytes;
+storage/CHGraphImpl.java:    final DataAccess nodesCH;
+storage/CHGraphImpl.java:        this.nodesCH = dir.find("nodes_ch_" + name);
+storage/CHGraphImpl.java:            final int getEdgeRef(final int nodeId) {
+storage/CHGraphImpl.java:                return CHGraphImpl.this.nodesCH.getInt(nodeId * CHGraphImpl.this.nodeCHEntryBytes + CHGraphImpl.this.N_CH_REF);
+storage/CHGraphImpl.java:            final void setEdgeRef(final int nodeId, final int edgeId) {
+storage/CHGraphImpl.java:                CHGraphImpl.this.nodesCH.setInt(nodeId * CHGraphImpl.this.nodeCHEntryBytes + CHGraphImpl.this.N_CH_REF, edgeId);
+storage/CHGraphImpl.java:    public final void setLevel(final int nodeIndex, final int level) {
+storage/CHGraphImpl.java:        this.checkNodeId(nodeIndex);
+storage/CHGraphImpl.java:        this.nodesCH.setInt(nodeIndex * this.nodeCHEntryBytes + this.N_LEVEL, level);
+storage/CHGraphImpl.java:    public final int getLevel(final int nodeIndex) {
+storage/CHGraphImpl.java:        this.checkNodeId(nodeIndex);
+storage/CHGraphImpl.java:        return this.nodesCH.getInt(nodeIndex * this.nodeCHEntryBytes + this.N_LEVEL);
+storage/CHGraphImpl.java:    final void checkNodeId(final int nodeId) {
+storage/CHGraphImpl.java:        assert nodeId < this.baseGraph.getNodes() : "node " + nodeId + " is invalid. Not in [0," + this.baseGraph.getNodes() + ")";
+storage/CHGraphImpl.java:        final long maxCapacity = this.getNodes() * this.nodeCHEntryBytes;
+storage/CHGraphImpl.java:        this.nodesCH.ensureCapacity(maxCapacity);
+storage/CHGraphImpl.java:        final long baseCapacity = this.baseGraph.nodes.getCapacity();
+storage/CHGraphImpl.java:        for (long pointer = this.N_CH_REF, basePointer = this.baseGraph.N_EDGE_REF; pointer < maxCapacity; pointer += this.nodeCHEntryBytes, basePointer += this.baseGraph.nodeEntryBytes) {
+storage/CHGraphImpl.java:            this.nodesCH.setInt(pointer, this.baseGraph.nodes.getInt(basePointer));
+storage/CHGraphImpl.java:        return this.toString() + ", shortcuts:" + Helper.nf(this.shortcutCount) + ", nodesCH:(" + this.nodesCH.getCapacity() / 1048576L + "MB)";
+storage/CHGraphImpl.java:        this.nodesCH.copyTo(tmpG.nodesCH);
+storage/CHGraphImpl.java:        tmpG.nodeCHEntryBytes = this.nodeCHEntryBytes;
+storage/CHGraphImpl.java:        this.nodeCHEntryBytes = this.N_CH_REF + 4;
+storage/CHGraphImpl.java:        this.nodesCH.setSegmentSize(bytes);
+storage/CHGraphImpl.java:        this.nodesCH.create(bytes);
+storage/CHGraphImpl.java:        if (!this.nodesCH.loadExisting() || !this.shortcuts.loadExisting()) {
+storage/CHGraphImpl.java:        this.nodesCH.flush();
+storage/CHGraphImpl.java:        this.nodesCH.close();
+storage/CHGraphImpl.java:        return this.nodesCH.isClosed();
+storage/CHGraphImpl.java:        return this.nodesCH.getCapacity() + this.shortcuts.getCapacity();
+storage/GHDirectory.java:                this.put("nodes", DAType.RAM_INT_STORE);
+storage/GHDirectory.java:                this.put("nodes", DAType.RAM_INT);
+GraphHopper.java:        this.prepareContractedNodes = args.getInt("prepare.contracted-nodes", this.prepareContractedNodes);
+GraphHopper.java:        rsp.getHints().put("visited_nodes.sum", visitedNodesSum);
+GraphHopper.java:        rsp.getHints().put("visited_nodes.average", visitedNodesSum / (points.size() - 1));
+GraphHopper.java:        this.logger.info("edges: " + this.ghStorage.getAllEdges().getMaxId() + ", nodes " + currNodeCount + ", there were " + preparation.getMaxSubnetworks() + " subnetworks. removed them => " + (prevNodeCount - currNodeCount) + " less nodes");

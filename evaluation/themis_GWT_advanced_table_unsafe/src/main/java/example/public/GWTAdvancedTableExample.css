@@ -1,0 +1,10 @@
+.advancedTableHeader {
+	background: #DDDDDD;
+}
+
+.advancedTableRow {
+}
+
+.advancedTableSelectedRow {
+	background: #9999FF;
+}

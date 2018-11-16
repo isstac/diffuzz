@@ -1,0 +1,19 @@
+Download h2: http://www.h2database.com/h2-2018-03-18.zip
+and unzip it. OR use the provided jar in this folder.
+
+$ cd h2/bin
+$ java -cp h2*.jar org.h2.tools.Shell
+$ URL jdbc:h2:~/pac4j-fuzz
+$ Driver org.h2.Driver
+$ User sa
+$ Password <just enter>
+$ create table users (id INT, username varchar(255), password varchar(255));
+<terminate with CTRL-C>
+
+$ java -cp h2*.jar org.h2.tools.Shell
+$ URL jdbc:h2:~/tomcat
+$ Driver org.h2.Driver
+$ User sa
+$ Password <just enter>
+$ create table users (user_name varchar(255), user_pass varchar(255));
+<terminate with CTRL-C>
