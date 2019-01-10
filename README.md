@@ -1,6 +1,6 @@
 # DifFuzz: Differential Fuzzing for Side-Channel Analysis
 
-This repository provides the tool and the evaluation subjects for the paper "DifFuzz: Differential Fuzzing for Side-Channel Analysis" accepted for the technical track at ICSE'2019. A pre-print of the paper can be found on [arxiv.org](https://arxiv.org/abs/1811.07005).
+This repository provides the tool and the evaluation subjects for the paper "DifFuzz: Differential Fuzzing for Side-Channel Analysis" accepted for the technical track at ICSE'2019. A pre-print of the paper can be found on [arxiv.org](https://arxiv.org/pdf/1811.07005.pdf).
 
 The repository contains two folders: *tool* and *evaluation*.
 
@@ -17,6 +17,8 @@ The folder *tool* contains 3 subfolders:
 * *fuzzerside*: This folder includes the *interface* program to connect the *Kelinci server* to the AFL fuzzer. Simply use `make` to compile the interface.c file. If there is an error, you will have to modify the Makefile according to your system setup.
 
 * *instrumentor*: This folder includes the *Kelinci server* and the *instrumentor* written in Java. The instrumentor is used to instrument the Java bytecode, which is necessary to add the coverage reporting and other metric collecting for the fuzzing. The Kelinci server handles requests from AFL to execute an mutated input on the application. Both are included in the same Gradle project. Therefore, you can simply use `gradle build` to build them.
+
+As already mentioned, we have provided a script to build everything. Please execute `tool/setup.sh` to trigger that. Note that depending on your execution environment, you may want to modify this script. We tested our script on a Ubuntu TODO.
 
 ### General Execution Instructions
 In general, you will have to follow six steps in order to apply DifFuzz for side-channel analysis:
