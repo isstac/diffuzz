@@ -12,20 +12,23 @@ cd ./afl-2.51b-wca/
 make clean
 make -s
 make install -s
+cd ..
 echo ""
 
 # Build interface program.
 echo "Build interface program.."
-cd ../fuzzerside
+cd ./fuzzerside
 make clean
 make -s
+cd ..
 echo ""
 
 # Build Kelinci server and instrumentor.
 echo "Build Kelinci and instrumentor"
-cd ../instrumentor
+cd ./instrumentor
 gradle clean
 gradle build
+cd ..
 echo ""
 
 echo "Done."
