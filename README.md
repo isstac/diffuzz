@@ -41,3 +41,12 @@ Note: between step 4 and 5 you might want to test that the Kelinci server is run
 
 ## Evaluation
 The folder *evaluation* contains all our evaluation subjects. After having DifFuzz installed, you can run the script *prepare.sh* to build and instrument all subjects. You can use the `run.sh` scripts in the subject folders to run DifFuzz. Be aware that the fuzzing approach uses random mutations and therefore it is necessary to repeat the experiments to get reliable results. For the paper we executed each subject for 30 minutes. We repeated each experiment 5 times and reported the averaged results. TODO: provide scripts, provide statistics scripts, explain how to generate statsitics...
+
+
+## Developers
+
+* **Yannic Noller** (yannic.noller at acm.org)
+
+
+## License
+TODO
