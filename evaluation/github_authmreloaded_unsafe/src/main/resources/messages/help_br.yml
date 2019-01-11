@@ -1,0 +1,46 @@
+# Arquivo de tradução da ajuda do AuthMe, aka quando o comando /authme help é usado
+# Traduzido por Frani (PotterCraft_) | www.magitechserver.com
+
+# -------------------------------------------------------
+# Lista de textos usados na seção de ajuda:
+common:
+    header: '==========[ Ajuda AuthMeReloaded ]=========='
+    optional: 'Opcional'
+    hasPermission: 'Você tem permissão'
+    noPermission: 'Sem Permissão'
+    default: 'Padrão'
+    result: 'Resultado'
+    defaultPermissions:
+        notAllowed: 'Sem Permissão'
+        opOnly: 'Apenas jogadores com OP'
+        allowed: 'Todos podem'
+
+# -------------------------------------------------------
+# Títulos das seções individuais de ajuda
+# Defina o texto traduzido como vazio para desativá-lo, aka esconder do help
+#   alternatives: ''
+section:
+    command: 'Comando'
+    description: 'Pequena descrição'
+    detailedDescription: 'Descrição detalhada'
+    arguments: 'Argumentos'
+    permissions: 'Permissões'
+    alternatives: 'Alternativas'
+    children: 'Comandos'
+
+# -------------------------------------------------------
+# Você pode traduzir o help de qualquer comando usando o padrão abaixo
+# Por exemplo, para traduzir /authme reload, crie uma seção "authme.reload", ou "login" para /login
+# Se o comando usa argumentos, você pode usar arg1 como usado abaixo para traduzir o primeiro argumento em diante
+# Traduções não precisam ser completas. Qualquer parte faltante vai ser pega normalente da config padrão.
+# OBS: Coloque os comandos principais, como "authme" antes dos seus subcomandos (como "authme.reload")
+commands:
+    authme.register:
+        description: 'Registra um jogador'
+        detailedDescription: 'Registra um esprecifico jogador com uma senha especifica.'
+        arg1:
+            label: 'player'
+            description: 'Nome do player'
+        arg2:
+            label: 'password'
+            description: 'Senha'

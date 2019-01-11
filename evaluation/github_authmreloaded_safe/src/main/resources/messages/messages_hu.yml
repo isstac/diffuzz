@@ -1,0 +1,144 @@
+# List of global tags:
+# %nl% - Goes to new line.
+# %username% - Replaces the username of the player receiving the message.
+# %displayname% - Replaces the nickname (and colors) of the player receiving the message.
+
+# Registration
+registration:
+    disabled: '&cA regisztráció letiltva!'
+    name_taken: '&cEz a játékosnév már regisztrálva van!'
+    register_request: '&cKérlek, regisztrálj be a következő paranccsal: "&7/register <jelszó> <jelszó ismét>&c".'
+    command_usage: '&cHasználat: "&7/register <jelszó> <jelszó ismét>&c".'
+    reg_only: '&4Csak a regisztrált játékosok tudnak csatlakozni a szerverhez!'
+    success: '&aA regisztráció sikeres!'
+    kicked_admin_registered: 'Az adminisztrátor által regisztrálva lettél. Kérlek, lépj be újra a szerverbe!'
+
+# Password errors on registration
+password:
+    match_error: '&cA két jelszó nem egyezik!'
+    name_in_password: '&cNem használhatod a felhasználóneved jelszónak, kérlek, válassz másikat...'
+    unsafe_password: '&cA választott jelszó nem biztonságos, kérlek, válassz másikat...'
+    forbidden_characters: '&4A választott jelszó nem engedélyezett karaktereket tartalmaz. Engedélyezett karakterek: %valid_chars'
+    wrong_length: 'A jelszavad nem éri el a minimális hosszúságot!'
+
+# Login
+login:
+    command_usage: '&cBejelentkezés: "&7/login <jelszó>&c".'
+    wrong_password: '&4A jelszó helytelen!'
+    success: '&aSikeresen beléptél!'
+    login_request: '&cKérlek, jelentkezz be: "&7/login <jelszó>&c"!'
+    timeout_error: 'Bejelentkezési időtúllépés!'
+
+# Errors
+error:
+    denied_command: '&cAmíg nem vagy bejelentkezve, nem használhatod ezt a parancsot!'
+    denied_chat: '&cAmíg nem vagy bejelentkezve, nem használhatod a csevegőt!'
+    unregistered_user: '&cEz a felhasználó nincs regisztrálva!'
+    not_logged_in: '&cNem vagy bejelentkezve!'
+    no_permission: '&cNincs jogosultságod a használatára!'
+    unexpected_error: '&cHiba lépett fel! Lépj kapcsolatba a szerver tulajával!'
+    max_registration: '&cElérted a maximálisan beregisztrálható karakterek számát. (%reg_count/%max_acc %reg_names)'
+    logged_in: '&cMár be vagy jelentkezve!'
+    kick_for_vip: '&3VIP játékos csatlakozott a szerverhez!'
+    tempban_max_logins: '&cIdeiglenesen ki lettél tiltva, mert túl sok alkalommal rontottad el a jelszavad!'
+
+# AntiBot
+antibot:
+    kick_antibot: 'Az AntiBot védelem bekapcsolva! Kérlek, várj pár percet mielőtt csatlakozol.'
+    auto_enabled: '&4[AntiBot] Az AntiBot védelem bekapcsolt, mert a megszabott időn belül több felhasználó csatlakozott!'
+    auto_disabled: '&2[AntiBot] Az AntiBot kikapcsol %m perc múlva!'
+
+# Unregister
+unregister:
+    success: '&cA regisztráció sikeresen törölve!'
+    command_usage: '&cHasználat: "&7/unregister <jelszó>&c"'
+
+# Other messages
+misc:
+    account_not_activated: '&cA felhasználód aktiválása még nem történt meg, ellenőrizd a megadott emailed!'
+    password_changed: '&cA jelszó sikeresen megváltoztatva!'
+    logout: '&cSikeresen kijelentkeztél!'
+    reload: 'Beállítások és az adatbázis újratöltve!'
+    usage_change_password: 'Használat: "/changepassword <régi jelszó> <új jelszó>".'
+    two_factor_create: '&2A titkos kódod a következő: %code. Vagy skenneld be a következő oldalról: %url'
+    accounts_owned_self: '%count db regisztrációd van:'
+    accounts_owned_other: 'A %name nevű játékosnak, %count db regisztrációja van:'
+
+# Session messages
+session:
+    valid_session: '&2A megadott időkereten belül csatlakoztál vissza, így a rendszer automatikusan beléptetett.'
+    invalid_session: '&cAz IP címed megváltozott, ezért a visszacsatlakozási időkereted lejárt.'
+
+# Error messages when joining
+on_join_validation:
+    same_ip_online: 'Már valaki csatlakozott a szerverhez ezzel az IP címmel!'
+    same_nick_online: 'Ezzel a játékosnévvel már játszanak a szerveren.'
+    name_length: '&4A felhasználóneved túl hosszú, vagy túl rövid! Kérlek, válassz másikat!'
+    characters_in_name: '&4A felhasználóneved nem engedélyezett karaktereket tartalmaz. Engedélyezett karakterek: %valid_chars'
+    kick_full_server: '&4A szerver megtelt, próbálj csatlakozni később!'
+    country_banned: '&4Az országod a tiltólistán van ezen a szerveren!'
+    not_owner_error: 'Ez nem a te felhasználód. Kérlek, válassz másik nevet!'
+    invalid_name_case: '%valid a felhasználó neved nem? Akkor ne %invalid névvel próbálj feljönni.'
+    # TODO quick_command: 'You used a command too fast! Please, join the server again and wait more before using any command.'
+
+# Email
+email:
+    add_email_request: '&3Kérlek, rendeld hozzá a felhasználódhoz az email címedet "&7/email add <email címed> <email címed ismét>&3".'
+    usage_email_add: '&cHasználat: "&7/email add <email> <email ismét>&c".'
+    usage_email_change: '&cHasználat: "&7/email change <régi email> <új email>&c".'
+    new_email_invalid: '&cHibás az új email cím, próbáld újra!'
+    old_email_invalid: '&cHibás a régi email cím, próbáld újra!'
+    invalid: '&cHibás az email cím, próbáld újra!'
+    added: '&2Az email címed rögzítése sikeresen megtörtént!'
+    request_confirmation: '&cKérlek, ellenőrízd az email címedet!'
+    changed: '&2Az email cím cseréje sikeresen megtörtént!'
+    email_show: '&2A jelenlegi email-ed a következő: &f%email'
+    no_email_for_account: '&2Ehhez a felhasználóhoz jelenleg még nincs email hozzárendelve.'
+    already_used: '&4Ez az email cím már használatban van!'
+    incomplete_settings: 'Hiba: nem lett beállítva az összes szükséges beállítás az email küldéshez. Vedd fel a kapcsolatot egy adminnal.'
+    send_failure: 'Nem sikerült elküldeni az emailt. Lépj kapcsolatba egy adminnal.'
+    change_password_expired: 'Ezzel a paranccsal már nem módosíthatja jelszavát.'
+    email_cooldown_error: '&cEgy emailt már kiküldtünk. Következő email küldése előtt várnod kell: %time.'
+    # TODO add_not_allowed: '&cAdding email was not allowed'
+    # TODO change_not_allowed: '&cChanging email was not allowed'
+
+# Password recovery by email
+recovery:
+    forgot_password_hint: '&3Ha elfelejtetted a jelszavad, használd az "&7/email recovery <regisztrált email címed>&3".'
+    command_usage: '&cHasználat: "&7/email recovery <email>&c".'
+    email_sent: '&2A jelszó visszaállításhoz szükséges emailt elküldtük! Ellenőrizd a leveleidet!'
+    code:
+        code_sent: 'A jelszavad visszaállításához szükséges kódot sikeresen elküldtük az email címedre!'
+        incorrect: 'A visszaállító kód helytelen volt! Még %count lehetőséged maradt.'
+        tries_exceeded: 'Elérted a próbálkozások maximális számát. Használd a következő parancsot: "/email recovery [email címed]" egy új generálásához.'
+        correct: 'A visszaállító kód helyes!'
+        change_password: 'Használd a következő parancsot: "/email setpassword <új jelszó>", hogy azonnal megváltoztasd a jelszavad.'
+
+# Captcha
+captcha:
+    usage_captcha: '&3A bejelentkezéshez CAPTCHA szükséges, kérlek, használd a következő parancsot: "&7/captcha %captcha_code&3".'
+    wrong_captcha: '&cHibás CAPTCHA, kérlek, írd be a következő parancsot: "&7/captcha %captcha_code&c"!'
+    valid_captcha: '&2A CAPTCHA sikeresen feloldva!'
+    # TODO captcha_for_registration: 'To register you have to solve a captcha first, please use the command: /captcha %captcha_code'
+    # TODO register_captcha_valid: '&2Valid captcha! You may now register with /register'
+
+# Verification code
+verification:
+    code_required: '&3Ez a parancs érzékeny, és e-mailes igazolást igényel! Ellenőrizze a bejövő postafiókot, és kövesse az e-mail utasításait.'
+    command_usage: '&cHasználat: /verification <kód>'
+    incorrect_code: '&cHelytelen kód, írd be "/verification <kód>" be a chatbe, az e-mailben kapott kód használatával'
+    success: '&2Az Ön személyazonosságát ellenőrizték! Mostantól végrehajthatja az összes parancsot az aktuális munkamenetben!'
+    already_verified: '&2Már minden érzékeny parancsot végrehajthat az aktuális munkameneten belül!'
+    code_expired: '&3A kód lejárt! Végezzen el egy másik érzékeny parancsot, hogy új kódot kapjon!'
+    email_needed: '&3A személyazonosságának igazolásához e-mail címet kell csatolnia fiókjához!'
+
+# Time units
+time:
+    second: 'másodperc'
+    seconds: 'másodperc'
+    minute: 'perc'
+    minutes: 'perc'
+    hour: 'óra'
+    hours: 'óra'
+    day: 'nap'
+    days: 'nap'

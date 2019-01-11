@@ -1,0 +1,5 @@
+<module>
+	<inherits name="com.google.gwt.user.User"/>
+	<entry-point class="example.client.GWTAdvancedTableExample"/>
+	<servlet path="/UsersTableModelService" class="example.server.UsersTableModelServiceImpl"/>
+</module>

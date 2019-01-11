@@ -1,0 +1,144 @@
+# List of global tags:
+# %nl% - Goes to new line.
+# %username% - Replaces the username of the player receiving the message.
+# %displayname% - Replaces the nickname (and colors) of the player receiving the message.
+
+# Registration
+registration:
+    disabled: '&cВнутрішньоігрову реєстрацію зараз вимкнено.'
+    name_taken: '&cТакий нікнейм вже зареєстровано.'
+    register_request: '&3Перш ніж почати гру, вам потрібно зареєструвати свій нікнейм!%nl%&3Для цього просто введіть команду "/register <пароль> <повторПароля>"'
+    command_usage: '&cСинтаксис: /register <пароль> <повторПароля>'
+    reg_only: '&4Лише зареєстровані гравці можуть підключатись до сервера!%nl%&4Будь ласка, відвідайте http://example.com для реєстрації.'
+    success: '&2Реєстрація пройшла успішно!'
+    kicked_admin_registered: 'Адміністратор вас зареєстрував; Будь ласка, авторизуйтесь знову!'
+
+# Password errors on registration
+password:
+    match_error: '&cПаролі не співпадають!'
+    name_in_password: '&cНе можна використовувати свій нікнейм у якості пароля! Будь ласка, виберіть щось інакше...'
+    unsafe_password: '&cЦей пароль надто простий! Будь ласка, придумайте інакший...'
+    forbidden_characters: '&4Ваш пароль містить недопустимі символи. Підберіть інакший...%nl%&4(Reg-ex: %valid_chars)'
+    wrong_length: '&cВаш пароль надто короткий або надто довгий! Спробуйте інакший...'
+
+# Login
+login:
+    command_usage: '&cСинтаксис: /login <пароль>'
+    wrong_password: '&cНевірний пароль!'
+    success: '&2Успішна авторизація!'
+    login_request: '&cДля авторизації, введіть команду "/login <пароль>"'
+    timeout_error: '&4Час для авторизації сплинув. Будь ласка, спробуйте ще раз!'
+
+# Errors
+error:
+    denied_command: '&cДля використання цієї команди потрібна авторизація.'
+    denied_chat: '&cДля доступу до чату потрібна авторизація.'
+    unregistered_user: '&cЦей гравець не є зареєстрованим.'
+    not_logged_in: '&cВи не авторизовані!'
+    no_permission: '&4У вас недостатньо прав, щоб застосувати цю команду!'
+    unexpected_error: '&4[AuthMe] Error. Будь ласка, повідомте адміністратора!'
+    max_registration: '&cВичерпано ліміт реєстрацій (%reg_count/%max_acc %reg_names) для вашого підключення!'
+    logged_in: '&cВи вже авторизовані!'
+    kick_for_vip: '&3Вас кікнуто, внаслідок того, що VIP гравець зайшов на сервер коли небуло вільних місць.'
+    tempban_max_logins: '&cВаш IP тимчасово заблоковано, із‒за багатократного введення хибного пароля.'
+
+# AntiBot
+antibot:
+    kick_antibot: 'На сервер здійснено DDoS атаку. Будь ласка, зачекайте декілька хвилин доки активність спаде.'
+    auto_enabled: '&4[AntiBotService] Ненормативне число з’єднань. Активовано антибот систему!'
+    auto_disabled: '&2[AntiBotService] Антибот систему деактивовано після %m хв. активності.'
+
+# Unregister
+unregister:
+    success: '&cДані про реєстрацію успішно видалено'
+    command_usage: '&cСинтаксис: /unregister <пароль>'
+
+# Other messages
+misc:
+    account_not_activated: '&cВаш акаунт ще не активовано. Будь ласка, провірте свою електронну пошту!'
+    password_changed: '&2Пароль успішно змінено!'
+    logout: '&2Ви вийшли зі свого акаунта!'
+    reload: '&2Конфігурації та базу даних було успішно перезавантажено!'
+    usage_change_password: '&cСинтаксис: /changepassword <старийПароль> <новийПароль>'
+    two_factor_create: '&2Ваш секретний код — %code %nl%&2Можете зкопіювати його за цим посиланням — %url'
+    accounts_owned_self: 'Кількість ваших твінк‒акаунтів: %count:'
+    accounts_owned_other: 'Кількість твінк‒акаунтів гравця %name: %count'
+
+# Session messages
+session:
+    valid_session: '&2Сесію відновлено.'
+    invalid_session: '&cСесію було розірвано внаслідок зміни IP.'
+
+# Error messages when joining
+on_join_validation:
+    same_ip_online: 'Перевищено ліміт на авторизацію з одного IP.'
+    same_nick_online: '&4Хтось з таким ніком зараз вже сидить на сервері!'
+    name_length: '&4Ваш нікнейм надто короткий або надто довгий!'
+    characters_in_name: '&4Ваш нікнейм містить недопустимі символи! Reg-ex: %valid_chars'
+    kick_full_server: '&4Сервер переповнено! Доведеться зачекати доки хтось вийде.'
+    country_banned: '&4Your country is banned from this server!'
+    not_owner_error: 'Цей акаунт вам не належить! Будь ласка, оберіть інакший нікнейм!'
+    invalid_name_case: 'Регістр у вашому нікнеймі відрізняється від регістру при реєстрації.%nl%Поточний регістр: &c%invalid&f.  Валідний регістр: &a%valid&f.%nl%Будь ласка, перезайдіть з валідним регістром!'
+    # TODO quick_command: 'You used a command too fast! Please, join the server again and wait more before using any command.'
+
+# Email
+email:
+    add_email_request: '&3Не забудьте прив’язати електронну пошту до свого акаунта, за допомогою команди "/email add <e-mail> <e-mail повторно>"'
+    usage_email_add: '&cСинтаксис: /email add <e-mail> <e-mail повторно>'
+    usage_email_change: '&cСинтаксис: /email change <старий e-mail> <новий e-mail>'
+    new_email_invalid: '&cНекоректний формат.'
+    old_email_invalid: '&cСтарий e-mail, що прив’язано до вашого акаунта, відрізняється від введеного вами.'
+    invalid: '&cФормат вказаного e-mail’у є некоректним, або його домен внесено до блеклисту.'
+    added: '&2Електронну пошту успішно прив’язано до вашого акаунта.'
+    request_confirmation: '&cАдреси не співпадають.'
+    changed: '&2E-mail успішно змінено.'
+    # TODO email_show: '&2Your current email address is: &f%email'
+    # TODO no_email_for_account: '&2You currently don''t have email address associated with this account.'
+    already_used: '&4До цієї електронної пошти прив’язано забагато акаунтів!'
+    incomplete_settings: '&4Не всі необхідні налаштування є встановленими, щоб надсилати електронну пошту. Будь ласка, повідомте адміністратора!'
+    # TODO send_failure: 'The email could not be sent. Please contact an administrator.'
+    # TODO change_password_expired: 'You cannot change your password using this command anymore.'
+    # TODO email_cooldown_error: '&cAn email was already sent recently. You must wait %time before you can send a new one.'
+    # TODO add_not_allowed: '&cAdding email was not allowed'
+    # TODO change_not_allowed: '&cChanging email was not allowed'
+
+# Password recovery by email
+recovery:
+    forgot_password_hint: 'Забули пароль? Можете скористатись командою &9/email recovery &f<&9ваш e-mail&f>'
+    command_usage: '&cСинтаксис: /email recovery <e-mail>'
+    email_sent: '&2Лист для відновлення доступу надіслано. Будь ласка, провірте свою пошту!'
+    code:
+        # TODO code_sent: 'A recovery code to reset your password has been sent to your email.'
+        # TODO incorrect: 'The recovery code is not correct! You have %count tries remaining.'
+        # TODO tries_exceeded: 'You have exceeded the maximum number attempts to enter the recovery code. Use "/email recovery [email]" to generate a new one.'
+        # TODO correct: 'Recovery code entered correctly!'
+        # TODO change_password: 'Please use the command /email setpassword <new password> to change your password immediately.'
+
+# Captcha
+captcha:
+    usage_captcha: '&3Для продовження доведеться ввести капчу — "/captcha %captcha_code"'
+    wrong_captcha: '&cНевірно введена капча! Спробуйте ще раз — "/captcha %captcha_code"'
+    valid_captcha: '&2Капчу прийнято.'
+    # TODO captcha_for_registration: 'To register you have to solve a captcha first, please use the command: /captcha %captcha_code'
+    # TODO register_captcha_valid: '&2Valid captcha! You may now register with /register'
+
+# Verification code
+verification:
+    # TODO code_required: '&3This command is sensitive and requires an email verification! Check your inbox and follow the email''s instructions.'
+    # TODO command_usage: '&cUsage: /verification <code>'
+    # TODO incorrect_code: '&cIncorrect code, please type "/verification <code>" into the chat, using the code you received by email'
+    # TODO success: '&2Your identity has been verified! You can now execute all commands within the current session!'
+    # TODO already_verified: '&2You can already execute every sensitive command within the current session!'
+    # TODO code_expired: '&3Your code has expired! Execute another sensitive command to get a new code!'
+    # TODO email_needed: '&3To verify your identity you need to link an email address with your account!!'
+
+# Time units
+time:
+    # TODO second: 'second'
+    # TODO seconds: 'seconds'
+    # TODO minute: 'minute'
+    # TODO minutes: 'minutes'
+    # TODO hour: 'hour'
+    # TODO hours: 'hours'
+    # TODO day: 'day'
+    # TODO days: 'days'
