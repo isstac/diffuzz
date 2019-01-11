@@ -23,7 +23,7 @@ As already mentioned, we have provided a script to build everything. Please exec
 ### General Execution Instructions
 In general, you will have to follow six steps in order to apply DifFuzz for side-channel analysis:
 
-1. **Write the fuzzing driver**: In our paper we explain how a fuzzing driver should look like. Please check our evaluation subjects from some examples.
+1. **Write the fuzzing driver**: In our paper we explain how a fuzzing driver should look like. Please check our evaluation subjects for some examples.
 
 2. **Provide an initial fuzzing input**: The initial fuzzing input should be a file that does not crash the application. You can also provide multiple files.
 
