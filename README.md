@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/157902250.svg)](https://zenodo.org/badge/latestdoi/157902250)
 # DifFuzz: Differential Fuzzing for Side-Channel Analysis
 
 This repository provides the tool and the evaluation subjects for the paper "DifFuzz: Differential Fuzzing for Side-Channel Analysis" accepted for the technical track at ICSE'2019. A pre-print of the paper can be found on [arxiv.org](https://arxiv.org/pdf/1811.07005.pdf).
